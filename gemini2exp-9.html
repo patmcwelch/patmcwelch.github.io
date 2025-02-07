@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume of Patrick McDermott Welch, Education Program Manager specializing in LATAM workforce development.">
+    <title>Patrick McDermott Welch - Education Program Manager</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Google Calendar Appointment Scheduling CSS -->
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0070ba;
+            --background-color: #ffffff;
+            --text-color: #2d3436;
+            --success-color: #27ae60;
+            --google-blue: #4285f4;
+            /* Define a button color */
+            --button-color: #0070ba;
+             --border-radius: 12px; /* Increased border radius */
+        }
+
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            /* Use viewport units for padding */
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .decorative-circle {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+       section {
+            margin-bottom: 4rem;
+            display: flex; /* Use Flexbox */
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem; /* Reduced margin */
+            position: relative;
+            width: 100%;
+        }
+
+        /* Underline effect - positioned relative to the h2 */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* Experience and Education Item Styles */
+        .experience-item,
+        .education-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: var(--border-radius); /* Use the variable */
+            background-color: rgba(0, 112, 186, 0.05);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--google-blue);
+            position: relative;
+            overflow: hidden;
+            width: 100%; /* Ensure full width */
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-title,
+        .education-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .experience-company,
+        .education-institution {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--google-blue);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            padding: 0.3rem 0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .experience-company::after,
+        .education-institution::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--google-blue);
+            opacity: 0.3;
+        }
+
+        .experience-dates,
+        .education-dates {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .achievement-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .achievement-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .metric {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        /* Skills Section Styles */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center; /* Center the skill tags */
+}
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Contact Styles */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Button Styles */
+        .contact-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--button-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color: 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .contact-button:hover {
+            background-color: color-mix(in srgb, var(--button-color), black 10%);
+        }
+        .contact-button:focus{
+            outline: 2px solid color-mix(in srgb, var(--button-color), black 30%);
+            outline-offset: 2px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                /* Use viewport units for padding */
+                padding-left: 5vw;
+                padding-right: 5vw;
+            }
+
+            header {
+                padding: 2rem 0;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+             .contact-links {
+                flex-direction: column; /* Stack buttons vertically on small screens */
+                align-items: center; /* Center buttons */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <header>
+                <div class="decorative-circle"></div>
+                <h1>Patrick McDermott Welch</h1>
+                <div class="title">Education Program Manager</div>
+            </header>
+
+            <section id="about" aria-labelledby="about-heading">
+                <h2 id="about-heading">About</h2>
+                <p>Strategic education program manager at Google with proven success in developing and scaling international workforce development initiatives.  Specialized in LATAM markets with a track record of building partnerships with educational institutions, government agencies, and industry leaders. When I'm not building world-class education programs, you can find me hiking in the mountains or experimenting with new recipes in the kitchen.</p>
+            </section>
+
+            <section id="experience" aria-labelledby="experience-heading">
+                <h2 id="experience-heading">Experience</h2>
+
+                <article class="experience-item">
+                    <div class="experience-company">Google</div>
+                    <div class="experience-title">Program Manager</div>
+                    <div class="experience-dates">2020 - Present</div>
+                    <h3 class="experience-subheading">LATAM Future Workforce</h3>
+                    <ul class="achievement-list" role="list">
+                        <li>Designed and implemented comprehensive learning strategy and GTM for LATAM region</li>
+                        <li>Achieved <span class="metric">31x growth</span> in key learning metrics since 2020</li>
+                        <li>Launched regional job fair program engaging <span class="metric">45 hiring partners</span> across <span class="metric">10 countries</span></li>
+                        <li>Established partnerships with major LATAM labor training organizations (SENAI, SENATI, SENA)</li>
+                        <li>Managed deliverables across 3 regional vendors and local ATP agency</li>
+                        <li>Cultivated relationships with CXO and government leadership at regional educational institutions</li>
+                        <li>Led cross-functional projects coordinating Legal, GAAP, and Marketing teams</li>
+                        <li>Served as liaison with Director+ level regional sales leadership on learning initiatives</li>
+                        <li>Developed deep expertise in LATAM educational and compliance guidelines</li>
+                    </ul>
+                    <h3 class="experience-subheading">Higher Education in Brazil</h3>
+                    <ul class="achievement-list" role="list">
+                        <li>Launched and scaled program to <span class="metric">12,000+ students</span> within first year</li>
+                        <li>Piloted GSI learning cohort program in partnership with Accenture and Deloitte, resulting in [quantifiable results]</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-company">ENSINA BRASIL</div>
+                    <div class="experience-title">Co-founder & Head of Training and Curriculum</div>
+                    <div class="experience-dates"></div>
+                    <ul class="achievement-list" role="list">
+                        <li>Designed 2-year teacher residency; intensive course, followed by ongoing development and coaching, virtual and in-person</li>
+                        <li>Trained and tracked progress of <span class="metric">300+ teachers</span> placed in <span class="metric">7 cities</span></li>
+                        <li>Managed team of <span class="metric">7 teaching specialists</span>; led virtual training; collected and systematized case-studies and evaluations</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-company">Fulbright Program</div>
+                    <div class="experience-title">Regional Coordinator</div>
+                    <div class="experience-dates">Jan 2014 – Dec 2015</div>
+                    <ul class="achievement-list" role="list">
+                        <li>Managed team of <span class='metric'>15 teaching assistants</span> placed in 3 cities</li>
+                        <li>Developed cultural activities curriculum for ~4K university students</li>
+                    </ul>
+                </article>
+
+                 <article class="experience-item">
+                    <div class="experience-company">CLAREMONT COLLEGES</div>
+                    <div class="experience-title">Research Coordinator – Virtual Language Community</div>
+                    <div class="experience-dates">Jan 2015 – Jul 2016</div>
+                    <ul class="achievement-list" role="list">
+                        <li>Piloted a virtual language exchange with 4 US partner universities</li>
+                        <li>Co-authored case study published in Hispania Journal (Jun 2017)</li>
+                    </ul>
+                </article>
+
+                 <article class="experience-item">
+                    <div class="experience-company">TEACH FOR AMERICA</div>
+                    <div class="experience-title">Math Teacher – Estrella Vista Middle School</div>
+                    <div class="experience-dates">Jun 2011 – Jun 2013</div>
+                    <ul class="achievement-list" role="list">
+                        <li>Prepared 120 8th grade students for Algebra exam; <span class="metric">80% pass rate</span></li>
+                        <li>Soccer and softball coach; Parent and community liaison</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section id="education" aria-labelledby="education-heading">
+                <h2 id="education-heading">Education</h2>
+
+                <article class="education-item">
+                    <div class="education-institution">Arizona State University</div>
+                    <div class="education-title">Master of Education</div>
+                    <div class="education-dates">May 2013</div>
+                    <ul class="achievement-list" role="list">
+                         <li>Secondary education policy, pedagogy and practice</li>
+                         <li>Action research project on math problem-solving interventions</li>
+                         <li>Fulbright Grant awardee, 2014</li>
+                    </ul>
+                </article>
+
+                <article class="education-item">
+                    <div class="education-institution">Georgetown University</div>
+                    <div class="education-title">Bachelor of Arts</div>
+                    <div class="education-dates">May 2010</div>
+                     <ul class="achievement-list" role="list">
+                         <li>Political Science and English literature double major</li>
+                         <li>Lannan Poetry Fellow, 2008</li>
+                     </ul>
+                </article>
+            </section>
+
+            <section id="skills" aria-labelledby="skills-heading">
+                <h2 id="skills-heading">Core Competencies</h2>
+                <div class="skills">
+                    <span class="skill-tag">Program Management</span>
+                    <span class="skill-tag">Learning Strategy</span>
+                    <span class="skill-tag">International Education</span>
+                    <span class="skill-tag">Partnership Development</span>
+                    <span class="skill-tag">Workforce Development</span>
+                    <span class="skill-tag">LATAM Markets</span>
+                    <span class="skill-tag">Cross-functional Leadership</span>
+                    <span class="skill-tag">Educational Compliance</span>
+                    <span class="skill-tag">Strategic Planning</span>
+                </div>
+            </section>
+
+            <section id="contact" aria-labelledby="contact-heading" class="contact">
+                <h2 id="contact-heading">Get in Touch</h2>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" aria-label="Email" class="contact-button">Email</a>
+                    <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn" class="contact-button">LinkedIn</a>
+                    <!-- Google Calendar Appointment Scheduling button -->
+                    <button class="contact-button" id="calendar-button">Book an Appointment</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Ensure GSAP and ScrollTrigger are loaded before running this.
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".decorative-circle", {
+            duration: 1.5,
+            scale: 0,
+            opacity: 0,
+            ease: "elastic.out(1, 0.3)"
+        });
+
+        gsap.fromTo(".experience-item", {
+            x: -50,
+            opacity: 0
+        }, {
+            duration: 0.8,
+            x: 0, // Animate to the natural position
+            opacity: 1,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#experience",
+                start: "top center",
+                // markers: true  // Helpful for debugging ScrollTrigger
+            },
+            immediateRender: false // Crucial fix!
+        });
+
+        gsap.fromTo(".education-item", {
+            x: -50,
+            opacity: 0
+        }, {
+            duration: 0.8,
+            x: 0,
+            opacity: 1,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#education",
+                start: "top center",
+                // markers: true
+            },
+            immediateRender: false // Crucial fix!
+        });
+
+        gsap.from(".skill-tag", { //skill tags are fine with a basic from animation
+            duration: 0.5,
+            y: 20,
+            opacity: 0,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: "#skills",
+                start: "top center",
+                // markers: true
+            }
+        });
+
+        // Google Calendar Appointment Scheduling script
+        (function() {
+            var target = document.getElementById('calendar-button'); // Use our existing method
+            window.addEventListener('load', function() {
+                calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0t1yxGFJd32lif71_1POq6eERsC5WRD6jcYn__C0yMcTUjTE_101LixMlkqVN2jmNvTqiaWC7y?gv=true',
+                    color: '#0070ba', // Consistent color
+                    label: 'Book an Appointment',
+                    target,
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

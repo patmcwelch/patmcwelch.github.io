@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Resume of Patrick McDermott Welch, Education Program Manager specializing in LATAM workforce development.">
-    <title>Patrick McDermott Welch - Education Program Manager</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Google Calendar Appointment Scheduling CSS -->
-    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-
+    <title>Your Name - Professional Resume</title>
     <style>
         :root {
-            --primary-color: #2d3436;
-            --accent-color: #0070ba;
-            --background-color: #ffffff;
-            --text-color: #2d3436;
-            --success-color: #27ae60;
-            --google-blue: #4285f4;
-            /* Define a button color */
-            --button-color: #0070ba;
-             --border-radius: 12px; /* Increased border radius */
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --light-accent: #e0f7fa;
+            --text-color: #333;
+            --light-text: #777;
+            --background: #fff;
+            --section-bg: #f9f9f9;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
 
-        /* Reset and Basic Styles */
         * {
             margin: 0;
             padding: 0;
@@ -31,452 +24,725 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--background-color);
+            background-color: var(--background);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 5rem 0;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--section-bg);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-            /* Use viewport units for padding */
-            padding-left: 5vw;
-            padding-right: 5vw;
+            padding: 0 1.5rem;
         }
 
-        /* Header Styles */
+        /* Header & Navigation */
         header {
-            text-align: center;
-            padding: 4rem 0;
-            position: relative;
-        }
-
-        .decorative-circle {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border: 2px solid var(--accent-color);
-            border-radius: 50%;
-            opacity: 0.2;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .title {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Section Styles */
-       section {
-            margin-bottom: 4rem;
-            display: flex; /* Use Flexbox */
-            flex-direction: column; /* Stack items vertically */
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem; /* Reduced margin */
-            position: relative;
+            background-color: var(--background);
+            box-shadow: var(--shadow);
+            position: fixed;
             width: 100%;
-        }
-
-        /* Underline effect - positioned relative to the h2 */
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
+            top: 0;
             left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            z-index: 1000;
         }
 
-        h2:hover::after {
-            transform: scaleX(1);
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
         }
 
-
-        /* Experience and Education Item Styles */
-        .experience-item,
-        .education-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: var(--border-radius); /* Use the variable */
-            background-color: rgba(0, 112, 186, 0.05);
-            transition: transform 0.3s ease;
-            border-left: 4px solid var(--google-blue);
-            position: relative;
-            overflow: hidden;
-            width: 100%; /* Ensure full width */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
         }
 
-        .experience-item:hover,
-        .education-item:hover {
-            transform: translateX(10px);
+        .nav-links {
+            display: flex;
+            list-style: none;
         }
 
-        .experience-title,
-        .education-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+        .nav-links li {
+            margin-left: 2rem;
         }
 
-        .experience-company,
-        .education-institution {
-            font-size: 1.3rem;
+        .nav-links a {
             font-weight: 600;
-            color: var(--google-blue);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
-            display: inline-block;
-            padding: 0.3rem 0;
-            position: relative;
-            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .experience-company::after,
-        .education-institution::after {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--light-accent);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--google-blue);
-            opacity: 0.3;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
         }
 
-        .experience-dates,
-        .education-dates {
-            font-style: italic;
-            color: #666;
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--light-text);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            animation: fadeIn 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: calc(50% - 10px);
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-content {
+            padding: 50px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .timeline-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: opacity 1s ease;
+            position: absolute;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-image {
+            order: 2;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-image {
+            order: 1;
+        }
+        
+        .image-visible {
+            opacity: 1;
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+        }
+
+        .skill-level {
+            color: var(--light-text);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            transform-origin: left;
+            animation: progress 1s ease-out forwards;
+        }
+
+        /* Education Section */
+        .education-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-item {
+            background-color: white;
+            border-radius: 5px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .degree {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .school {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-date {
+            color: var(--light-text);
+            font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
-        .achievement-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .achievement-list li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .achievement-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        .metric {
-            color: var(--success-color);
-            font-weight: bold;
-        }
-
-        /* Skills Section Styles */
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center; /* Center the skill tags */
-}
-
-        .skill-tag {
-            padding: 0.5rem 1rem;
-            background-color: var(--accent-color);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            transition: transform 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Contact Styles */
+        /* Contact Section */
         .contact {
+            background-color: var(--primary-color);
+            color: white;
             text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-title::after {
+            background-color: white;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
             flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        /* Button Styles */
-        .contact-button {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--button-color);
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color: 0.3s ease;
-            margin: 0.5rem;
+            transition: var(--transition);
         }
 
-        .contact-button:hover {
-            background-color: color-mix(in srgb, var(--button-color), black 10%);
-        }
-        .contact-button:focus{
-            outline: 2px solid color-mix(in srgb, var(--button-color), black 30%);
-            outline-offset: 2px;
+        .contact-link:hover {
+            color: var(--accent-color);
         }
 
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            .container {
-                /* Use viewport units for padding */
-                padding-left: 5vw;
-                padding-right: 5vw;
+        .contact-link i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes progress {
+            from { width: 0; }
+            to { width: var(--width); }
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 1024px) {
+            .timeline-item:nth-child(odd) .timeline-image,
+            .timeline-item:nth-child(even) .timeline-image {
+                display: none;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
 
-            header {
-                padding: 2rem 0;
+            .timeline::after {
+                left: 31px;
             }
 
-            h1 {
-                font-size: 1.75rem;
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            h2 {
-                font-size: 1.3rem;
+            .timeline-item:nth-child(even) {
+                left: 0;
+                flex-direction: column;
             }
-             .contact-links {
-                flex-direction: column; /* Stack buttons vertically on small screens */
-                align-items: center; /* Center buttons */
+
+            .timeline-item::after {
+                left: 20px;
+                right: auto;
+                top: 20px;
+            }
+            
+            .timeline-content {
+                margin-bottom: 20px;
+                width: 100%;
+                min-height: auto;
+                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <main>
-        <div class="container">
-            <header>
-                <div class="decorative-circle"></div>
-                <h1>Patrick McDermott Welch</h1>
-                <div class="title">Education Program Manager</div>
-            </header>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <div class="logo">YN</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <section id="about" aria-labelledby="about-heading">
-                <h2 id="about-heading">About</h2>
-                <p>Strategic education program manager at Google with proven success in developing and scaling international workforce development initiatives.  Specialized in LATAM markets with a track record of building partnerships with educational institutions, government agencies, and industry leaders. When I'm not building world-class education programs, you can find me hiking in the mountains or experimenting with new recipes in the kitchen.</p>
-            </section>
-
-            <section id="experience" aria-labelledby="experience-heading">
-                <h2 id="experience-heading">Experience</h2>
-
-                <article class="experience-item">
-                    <div class="experience-company">Google</div>
-                    <div class="experience-title">Program Manager</div>
-                    <div class="experience-dates">2020 - Present</div>
-                    <h3 class="experience-subheading">LATAM Future Workforce</h3>
-                    <ul class="achievement-list" role="list">
-                        <li>Designed and implemented comprehensive learning strategy and GTM for LATAM region</li>
-                        <li>Achieved <span class="metric">31x growth</span> in key learning metrics since 2020</li>
-                        <li>Launched regional job fair program engaging <span class="metric">45 hiring partners</span> across <span class="metric">10 countries</span></li>
-                        <li>Established partnerships with major LATAM labor training organizations (SENAI, SENATI, SENA)</li>
-                        <li>Managed deliverables across 3 regional vendors and local ATP agency</li>
-                        <li>Cultivated relationships with CXO and government leadership at regional educational institutions</li>
-                        <li>Led cross-functional projects coordinating Legal, GAAP, and Marketing teams</li>
-                        <li>Served as liaison with Director+ level regional sales leadership on learning initiatives</li>
-                        <li>Developed deep expertise in LATAM educational and compliance guidelines</li>
-                    </ul>
-                    <h3 class="experience-subheading">Higher Education in Brazil</h3>
-                    <ul class="achievement-list" role="list">
-                        <li>Launched and scaled program to <span class="metric">12,000+ students</span> within first year</li>
-                        <li>Piloted GSI learning cohort program in partnership with Accenture and Deloitte, resulting in [quantifiable results]</li>
-                    </ul>
-                </article>
-
-                <article class="experience-item">
-                    <div class="experience-company">ENSINA BRASIL</div>
-                    <div class="experience-title">Co-founder & Head of Training and Curriculum</div>
-                    <div class="experience-dates"></div>
-                    <ul class="achievement-list" role="list">
-                        <li>Designed 2-year teacher residency; intensive course, followed by ongoing development and coaching, virtual and in-person</li>
-                        <li>Trained and tracked progress of <span class="metric">300+ teachers</span> placed in <span class="metric">7 cities</span></li>
-                        <li>Managed team of <span class="metric">7 teaching specialists</span>; led virtual training; collected and systematized case-studies and evaluations</li>
-                    </ul>
-                </article>
-
-                <article class="experience-item">
-                    <div class="experience-company">Fulbright Program</div>
-                    <div class="experience-title">Regional Coordinator</div>
-                    <div class="experience-dates">Jan 2014 – Dec 2015</div>
-                    <ul class="achievement-list" role="list">
-                        <li>Managed team of <span class='metric'>15 teaching assistants</span> placed in 3 cities</li>
-                        <li>Developed cultural activities curriculum for ~4K university students</li>
-                    </ul>
-                </article>
-
-                 <article class="experience-item">
-                    <div class="experience-company">CLAREMONT COLLEGES</div>
-                    <div class="experience-title">Research Coordinator – Virtual Language Community</div>
-                    <div class="experience-dates">Jan 2015 – Jul 2016</div>
-                    <ul class="achievement-list" role="list">
-                        <li>Piloted a virtual language exchange with 4 US partner universities</li>
-                        <li>Co-authored case study published in Hispania Journal (Jun 2017)</li>
-                    </ul>
-                </article>
-
-                 <article class="experience-item">
-                    <div class="experience-company">TEACH FOR AMERICA</div>
-                    <div class="experience-title">Math Teacher – Estrella Vista Middle School</div>
-                    <div class="experience-dates">Jun 2011 – Jun 2013</div>
-                    <ul class="achievement-list" role="list">
-                        <li>Prepared 120 8th grade students for Algebra exam; <span class="metric">80% pass rate</span></li>
-                        <li>Soccer and softball coach; Parent and community liaison</li>
-                    </ul>
-                </article>
-            </section>
-
-            <section id="education" aria-labelledby="education-heading">
-                <h2 id="education-heading">Education</h2>
-
-                <article class="education-item">
-                    <div class="education-institution">Arizona State University</div>
-                    <div class="education-title">Master of Education</div>
-                    <div class="education-dates">May 2013</div>
-                    <ul class="achievement-list" role="list">
-                         <li>Secondary education policy, pedagogy and practice</li>
-                         <li>Action research project on math problem-solving interventions</li>
-                         <li>Fulbright Grant awardee, 2014</li>
-                    </ul>
-                </article>
-
-                <article class="education-item">
-                    <div class="education-institution">Georgetown University</div>
-                    <div class="education-title">Bachelor of Arts</div>
-                    <div class="education-dates">May 2010</div>
-                     <ul class="achievement-list" role="list">
-                         <li>Political Science and English literature double major</li>
-                         <li>Lannan Poetry Fellow, 2008</li>
-                     </ul>
-                </article>
-            </section>
-
-            <section id="skills" aria-labelledby="skills-heading">
-                <h2 id="skills-heading">Core Competencies</h2>
-                <div class="skills">
-                    <span class="skill-tag">Program Management</span>
-                    <span class="skill-tag">Learning Strategy</span>
-                    <span class="skill-tag">International Education</span>
-                    <span class="skill-tag">Partnership Development</span>
-                    <span class="skill-tag">Workforce Development</span>
-                    <span class="skill-tag">LATAM Markets</span>
-                    <span class="skill-tag">Cross-functional Leadership</span>
-                    <span class="skill-tag">Educational Compliance</span>
-                    <span class="skill-tag">Strategic Planning</span>
-                </div>
-            </section>
-
-            <section id="contact" aria-labelledby="contact-heading" class="contact">
-                <h2 id="contact-heading">Get in Touch</h2>
-                <div class="contact-links">
-                    <a href="mailto:your.email@example.com" aria-label="Email" class="contact-button">Email</a>
-                    <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn" class="contact-button">LinkedIn</a>
-                    <!-- Google Calendar Appointment Scheduling button -->
-                    <button class="contact-button" id="calendar-button">Book an Appointment</button>
-                </div>
-            </section>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <h1>Your Name</h1>
+            <h2>Professional Title</h2>
+            <div class="hero-buttons">
+                <a href="#about" class="btn">Learn More</a>
+                <a href="resume.pdf" download class="btn btn-outline">Download CV</a>
+            </div>
         </div>
-    </main>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                This is where you can introduce yourself professionally. Highlight your key strengths, experiences, and what makes you unique in your field. This is your opportunity to make a strong first impression. Keep it concise but impactful, focusing on what would matter most to potential employers or clients viewing your resume site. Aim for 3-5 sentences that capture your professional identity and value proposition.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <!-- Experience Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Job Title</h3>
+                        <h4>Company Name</h4>
+                        <p class="timeline-date">Jan 2020 - Present</p>
+                        <ul>
+                            <li>Key responsibility or achievement with more details and explanation to show how the larger containers work with more content</li>
+                            <li>Key responsibility or achievement with additional context to demonstrate how multiple lines of text appear within these expanded containers</li>
+                            <li>Key responsibility or achievement that includes specific metrics and results to showcase the impact of your work</li>
+                            <li>Additional achievement that highlights leadership, innovation, or other important skills</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Experience Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Job Title</h3>
+                        <h4>Company Name</h4>
+                        <p class="timeline-date">Jan 2018 - Dec 2019</p>
+                        <ul>
+                            <li>Key responsibility or achievement with more details and explanation to show how the larger containers work with more content</li>
+                            <li>Key responsibility or achievement with additional context to demonstrate how multiple lines of text appear within these expanded containers</li>
+                            <li>Key responsibility or achievement that includes specific metrics and results to showcase the impact of your work</li>
+                            <li>Additional achievement that highlights leadership, innovation, or other important skills</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Experience Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Job Title</h3>
+                        <h4>Company Name</h4>
+                        <p class="timeline-date">Jan 2016 - Dec 2017</p>
+                        <ul>
+                            <li>Key responsibility or achievement with more details and explanation to show how the larger containers work with more content</li>
+                            <li>Key responsibility or achievement with additional context to demonstrate how multiple lines of text appear within these expanded containers</li>
+                            <li>Key responsibility or achievement that includes specific metrics and results to showcase the impact of your work</li>
+                            <li>Additional achievement that highlights leadership, innovation, or other important skills</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Skill 1</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Skill 2</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Skill 3</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Skill 4</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Skill 5</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Skill 6</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-items">
+                <!-- Education Item 1 -->
+                <div class="education-item">
+                    <h3 class="degree">Degree Name</h3>
+                    <p class="school">University Name</p>
+                    <p class="edu-date">2012 - 2016</p>
+                    <p>Brief description or notable achievements during your education.</p>
+                </div>
+                <!-- Education Item 2 -->
+                <div class="education-item">
+                    <h3 class="degree">Degree Name</h3>
+                    <p class="school">University Name</p>
+                    <p class="edu-date">2008 - 2012</p>
+                    <p>Brief description or notable achievements during your education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p>Feel free to reach out for opportunities or just to say hello.</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-link">
+                    <i>📧</i>
+                    <span>Email</span>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
+                    <i>💼</i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" class="contact-link">
+                    <i>💻</i>
+                    <span>GitHub</span>
+                </a>
+                <a href="tel:+1234567890" class="contact-link">
+                    <i>📱</i>
+                    <span>Phone</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        // Ensure GSAP and ScrollTrigger are loaded before running this.
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from(".decorative-circle", {
-            duration: 1.5,
-            scale: 0,
-            opacity: 0,
-            ease: "elastic.out(1, 0.3)"
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
 
-        gsap.fromTo(".experience-item", {
-            x: -50,
-            opacity: 0
-        }, {
-            duration: 0.8,
-            x: 0, // Animate to the natural position
-            opacity: 1,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#experience",
-                start: "top center",
-                // markers: true  // Helpful for debugging ScrollTrigger
-            },
-            immediateRender: false // Crucial fix!
-        });
-
-        gsap.fromTo(".education-item", {
-            x: -50,
-            opacity: 0
-        }, {
-            duration: 0.8,
-            x: 0,
-            opacity: 1,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#education",
-                start: "top center",
-                // markers: true
-            },
-            immediateRender: false // Crucial fix!
-        });
-
-        gsap.from(".skill-tag", { //skill tags are fine with a basic from animation
-            duration: 0.5,
-            y: 20,
-            opacity: 0,
-            stagger: 0.1,
-            scrollTrigger: {
-                trigger: "#skills",
-                start: "top center",
-                // markers: true
+        // Sticky header
+        const header = document.querySelector('header');
+        const hero = document.querySelector('.hero');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > hero.offsetHeight - 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'transparent';
+                header.style.boxShadow = 'none';
             }
         });
 
-        // Google Calendar Appointment Scheduling script
-        (function() {
-            var target = document.getElementById('calendar-button'); // Use our existing method
-            window.addEventListener('load', function() {
-                calendar.schedulingButton.load({
-                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0t1yxGFJd32lif71_1POq6eERsC5WRD6jcYn__C0yMcTUjTE_101LixMlkqVN2jmNvTqiaWC7y?gv=true',
-                    color: '#0070ba', // Consistent color
-                    label: 'Book an Appointment',
-                    target,
+        // Animate skill bars on scroll
+        const skillsSection = document.querySelector('.skills');
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkills() {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            const skillTop = skillsSection.getBoundingClientRect().top;
+            
+            if (skillTop < triggerBottom) {
+                skillBars.forEach(bar => {
+                    bar.style.width = bar.style.getPropertyValue('--width');
                 });
+            }
+        }
+        
+        window.addEventListener('scroll', animateSkills);
+        
+        // Animate timeline items on scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const timelineImages = document.querySelectorAll('.timeline-image');
+        
+        function showTimelineItems() {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            
+            timelineItems.forEach((item, index) => {
+                const itemTop = item.getBoundingClientRect().top;
+                
+                if (itemTop < triggerBottom) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                    
+                    // Add delay before showing the image
+                    setTimeout(() => {
+                        if (timelineImages[index]) {
+                            timelineImages[index].classList.add('image-visible');
+                        }
+                    }, 300);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    
+                    if (timelineImages[index]) {
+                        timelineImages[index].classList.remove('image-visible');
+                    }
+                }
             });
-        })();
+        }
+        
+        window.addEventListener('scroll', showTimelineItems);
+        window.addEventListener('load', showTimelineItems);
     </script>
 </body>
 </html>
